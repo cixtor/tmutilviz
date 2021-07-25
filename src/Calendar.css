@@ -25,6 +25,26 @@
 }
 .heatmap .cell.empty {
 }
+.heatmap .cell.color-0 {
+	background-color: #9ae9a8;
+	border-color: #9ae9a8;
+}
+.heatmap .cell.color-1 {
+	background-color: #41c464;
+	border-color: #41c464;
+}
+.heatmap .cell.color-2 {
+	background-color: #31a14e;
+	border-color: #31a14e;
+}
+.heatmap .cell.color-3 {
+	background-color: #206e39;
+	border-color: #206e39;
+}
+.heatmap .cell.color-4 {
+	background-color: #000000;
+	border-color: #000000;
+}
 .calendar .tooltip {
 	font-size: 12px;
 	margin-top: 12px;

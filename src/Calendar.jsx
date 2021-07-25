@@ -14,8 +14,17 @@ export default class Calendar extends React.Component {
 
   render() {
     let year = parseInt(this.props.year);
+    let backups = this.props.backups;
     let date = new Date(year, 0, 1);
     let offset = date.getDay();
+
+    let colors = [
+      "#9ae9a8",
+      "#41c464",
+      "#31a14e",
+      "#206e39",
+      "#000000",
+    ];
 
     let ical = Array(7).fill().map(()=>Array(53).fill(0));;
 
@@ -32,10 +41,22 @@ export default class Calendar extends React.Component {
         } else {
           let classes = "cell";
 
+          // Differentiate between each month.
           if (today.getMonth() % 2 === 0) {
             classes += " odd";
           } else {
             classes += " even";
+          }
+
+          // Colorize cells with one or more backups.
+          let formatted_date = today.toISOString().split("T")[0];
+          if (formatted_date in backups) {
+            let how_many = backups[formatted_date];
+            if (how_many < colors.length) {
+              classes += ` color-${how_many-1}`;
+            } else {
+              classes += " color-4";
+            }
           }
 
           ical[y][x] = <td
