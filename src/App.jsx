@@ -10,6 +10,8 @@ export default class App extends React.Component {
 
   listbackups = () => {
     let folders = [
+      // Output of the command "tmutil listbackups" in macOS.
+      // Ensure that each line is a separate entry in the array.
     ];
 
     let dates = folders.map(x => x.split("/").reverse()[0].substr(0, 10));
@@ -31,10 +33,11 @@ export default class App extends React.Component {
     let backups = this.listbackups();
 
     return (
-      <div>
+      <div className="app">
+        <h1>Time Machine (macOS) Visualization</h1>
+        <Calendar year="2019" backups={backups} />
         <Calendar year="2020" backups={backups} />
         <Calendar year="2021" backups={backups} />
-        <Calendar year="2022" backups={backups} />
       </div>
     );
   }
