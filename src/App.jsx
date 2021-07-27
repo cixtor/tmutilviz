@@ -4,10 +4,6 @@ import Calendar from './Calendar.jsx';
 import './App.css';
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   listbackups = () => {
     let folders = [
       // Output of the command "tmutil listbackups" in macOS.
